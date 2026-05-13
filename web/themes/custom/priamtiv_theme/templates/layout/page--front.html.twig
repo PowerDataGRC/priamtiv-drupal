@@ -1,14 +1,151 @@
 {#
-  Landing page override — removes Barrio's container/row wrapper so our
-  full-width section backgrounds can span the viewport.
+  Landing page override:
+  - Replaces Barrio's nav with the full PRIAM branded navbar
+  - Strips the container/row wrapper from the content area
+  - Replaces Barrio's footer with the full PRIAM branded footer
 #}
 {% extends "@bootstrap_barrio/layout/page.html.twig" %}
 
-{% block content %}
-  <main id="main-content" tabindex="-1" role="main">
-    <a href="#main-content" class="visually-hidden focusable skip-link">
-      {{ 'Skip to main content'|t }}
+{# ── Navbar ────────────────────────────────────────────────────────────────── #}
+{% block head %}
+<nav class="navbar sticky-top" id="priam-nav" aria-label="{{ 'Site navigation'|t }}">
+  <div class="container-xl d-flex align-items-center" style="min-height: 72px;">
+
+    {# Logo #}
+    <a class="navbar-brand me-auto" href="{{ front_page }}">
+      <img src="{{ base_path ~ directory }}/logo.svg"
+           alt="PRIAM" style="height: 56px; width: auto;">
     </a>
-    {{ page.content }}
-  </main>
+
+    {# Desktop links — hidden on mobile #}
+    <div class="d-none d-lg-flex align-items-center gap-1 me-4">
+      <a class="nav-link px-3 py-2 rounded-2" href="#platform">{{ 'Platform'|t }}</a>
+      <a class="nav-link px-3 py-2 rounded-2" href="#how">{{ 'How it works'|t }}</a>
+      <a class="nav-link px-3 py-2 rounded-2" href="#why">{{ 'Why PRIAM'|t }}</a>
+      <a class="nav-link px-3 py-2 rounded-2" href="#faq">{{ 'FAQ'|t }}</a>
+      <a class="nav-link px-3 py-2 rounded-2" href="#contact">{{ 'Contact'|t }}</a>
+    </div>
+
+    {# Desktop CTAs #}
+    <div class="d-none d-lg-flex align-items-center gap-2">
+      <a class="btn btn-outline-secondary btn-sm px-4" href="https://powerdatainc.com/hello/">{{ 'Sign in'|t }}</a>
+      <a class="btn btn-primary btn-sm px-4" href="https://powerdatainc.com/hello/">{{ 'Start free trial'|t }}</a>
+    </div>
+
+    {# Mobile hamburger #}
+    <button class="d-lg-none btn p-2 ms-2" id="priam-menu-btn"
+            aria-label="{{ 'Open menu'|t }}" aria-expanded="false"
+            style="border: none; background: none;">
+      <span style="display:flex; flex-direction:column; gap:5px;">
+        <span style="display:block; width:22px; height:2px; background:var(--priam-ink-700); border-radius:2px; transition: transform .2s ease;"></span>
+        <span style="display:block; width:22px; height:2px; background:var(--priam-ink-700); border-radius:2px; transition: opacity .2s ease;"></span>
+        <span style="display:block; width:22px; height:2px; background:var(--priam-ink-700); border-radius:2px; transition: transform .2s ease;"></span>
+      </span>
+    </button>
+
+  </div>
+</nav>
+
+{# Mobile overlay #}
+<div id="priam-nav-overlay" role="dialog" aria-modal="true" aria-label="{{ 'Navigation menu'|t }}"
+     style="display:none; position:fixed; inset:0; z-index:1055; background:#F7F4EE; overflow-y:auto; padding:1.5rem 1.5rem 2.5rem;">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
+    <img src="{{ base_path ~ directory }}/logo.svg" alt="PRIAM" style="height:48px;">
+    <button id="priam-overlay-close" aria-label="{{ 'Close menu'|t }}"
+            style="background:none; border:none; font-size:1.5rem; color:var(--priam-ink-700); cursor:pointer;">✕</button>
+  </div>
+  <nav style="display:flex; flex-direction:column;">
+    {% for label, anchor in {'Platform': '#platform', 'How it works': '#how', 'Why PRIAM': '#why', 'FAQ': '#faq', 'Contact': '#contact'} %}
+      <a href="{{ anchor }}"
+         style="font-family:'Fraunces',serif; font-size:1.75rem; font-weight:500; color:var(--priam-ink-900,#0E1216); padding:1.125rem 0; border-bottom:1px solid rgba(14,18,22,0.07); letter-spacing:-0.012em;">
+        {{ label|t }}
+      </a>
+    {% endfor %}
+  </nav>
+  <div style="display:flex; flex-direction:column; gap:.75rem; margin-top:2rem;">
+    <a class="btn btn-outline-secondary btn-lg" href="https://powerdatainc.com/hello/" style="justify-content:center;">{{ 'Sign in'|t }}</a>
+    <a class="btn btn-primary btn-lg" href="https://powerdatainc.com/hello/" style="justify-content:center;">{{ 'Start free trial →'|t }}</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('priam-menu-btn');
+  var overlay = document.getElementById('priam-nav-overlay');
+  var close = document.getElementById('priam-overlay-close');
+  function open() { overlay.style.display = 'block'; btn.setAttribute('aria-expanded','true'); document.body.style.overflow = 'hidden'; }
+  function shut() { overlay.style.display = 'none';  btn.setAttribute('aria-expanded','false'); document.body.style.overflow = ''; }
+  btn.addEventListener('click', open);
+  close.addEventListener('click', shut);
+  overlay.querySelectorAll('a[href^="#"]').forEach(function(a){ a.addEventListener('click', shut); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') shut(); });
+})();
+</script>
+{% endblock %}
+
+{# ── Main content (no container wrapper) ──────────────────────────────────── #}
+{% block content %}
+<main id="main-content" tabindex="-1" role="main">
+  <a href="#main-content" class="visually-hidden focusable">{{ 'Skip to main content'|t }}</a>
+  {{ page.content }}
+</main>
+{% endblock %}
+
+{# ── Footer ────────────────────────────────────────────────────────────────── #}
+{% block footer %}
+<footer class="site-footer" id="contact">
+  <div class="container-xl">
+    <div class="row g-5 pb-5">
+
+      {# Brand column #}
+      <div class="col-12 col-md-5 col-lg-4">
+        <a href="{{ front_page }}">
+          <img src="{{ base_path ~ directory }}/images/logo-light.svg"
+               alt="PRIAM" style="height:48px; width:auto; margin-bottom:1.25rem; display:block;">
+        </a>
+        <p style="font-size:0.9375rem; line-height:1.6;">
+          The simple GRC platform for small businesses — policies, risk, incidents,
+          and assets in one place from day one.
+        </p>
+        <p class="mt-3" style="font-size:0.875rem;">
+          <a href="https://powerdatainc.com/hello/" class="btn btn-sm btn-outline-light px-4 mt-2">
+            {{ 'Start free trial'|t }} →
+          </a>
+        </p>
+      </div>
+
+      {# Product links #}
+      <div class="col-6 col-md-3 col-lg-2 offset-lg-2">
+        <div class="footer-heading">{{ 'Product'|t }}</div>
+        <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+          <li><a href="#platform">{{ 'Platform'|t }}</a></li>
+          <li><a href="#how">{{ 'How it works'|t }}</a></li>
+          <li><a href="#why">{{ 'Why PRIAM'|t }}</a></li>
+          <li><a href="#faq">{{ 'FAQ'|t }}</a></li>
+          <li><a href="https://powerdatainc.com/hello/">{{ 'Start free trial'|t }}</a></li>
+        </ul>
+      </div>
+
+      {# Company links #}
+      <div class="col-6 col-md-2 col-lg-2">
+        <div class="footer-heading">{{ 'Company'|t }}</div>
+        <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+          <li><a href="https://powerdatainc.com">{{ 'PowerData'|t }}</a></li>
+          <li><a href="https://powerdatainc.com/hello/">{{ 'Contact'|t }}</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    {# Legal row #}
+    <div class="footer-legal d-flex flex-wrap gap-3 justify-content-between">
+      <span>© {{ "now"|date("Y") }} PowerData Inc. All rights reserved.</span>
+      <span style="letter-spacing:0;">
+        <a href="/privacy-policy" class="me-3">{{ 'Privacy'|t }}</a>
+        <a href="/terms">{{ 'Terms'|t }}</a>
+      </span>
+    </div>
+
+  </div>
+</footer>
 {% endblock %}

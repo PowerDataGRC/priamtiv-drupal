@@ -257,3 +257,21 @@ footer.site-footer .footer-legal {
 .text-primary    { color: var(--bs-primary) !important; }
 .border-primary  { border-color: var(--bs-primary) !important; }
 .badge.bg-primary { background-color: var(--bs-primary) !important; }
+
+/* ── Hero h1 (Fraunces display style) ───────────────────────────────────────── */
+.priam-hero h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+.priam-hero h1 em { color: var(--bs-primary); font-style: italic; }
+
+/* ── Section vertical rhythm ────────────────────────────────────────────────── */
+.py-lg-6 { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+@media (max-width: 991px) { .py-lg-6 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; } }
+
+/* ── Skip link (accessibility) ───────────────────────────────────────────────── */
+.skip-link { position: absolute; top: -40px; }
+.skip-link:focus { top: 0; }
