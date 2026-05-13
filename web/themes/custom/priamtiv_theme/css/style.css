@@ -247,16 +247,47 @@ footer.site-footer .footer-legal {
 }
 
 /* ── Webform contact ────────────────────────────────────────────────────────── */
-.webform-submission-contact-form .form-control:focus {
+.webform-submission-contact-form .form-control,
+.webform-submission-contact-form .form-select {
+  border-color: rgba(14,18,22,0.15);
+  border-radius: 0.625rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+}
+.webform-submission-contact-form .form-control:focus,
+.webform-submission-contact-form .form-select:focus {
   border-color: var(--bs-primary);
   box-shadow: 0 0 0 0.2rem rgba(15,110,86,0.18);
 }
-.webform-submission-contact-form .btn-primary { min-width: 10rem; }
+.webform-submission-contact-form label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--priam-ink-700);
+  margin-bottom: 0.375rem;
+}
+.webform-submission-contact-form .btn-primary {
+  min-width: 10rem;
+  padding: 0.75rem 2rem;
+  border-radius: 0.625rem;
+}
+.webform-submission-contact-form .form-item { margin-bottom: 1.25rem; }
 
 /* ── Utility ─────────────────────────────────────────────────────────────────── */
 .text-primary    { color: var(--bs-primary) !important; }
 .border-primary  { border-color: var(--bs-primary) !important; }
 .badge.bg-primary { background-color: var(--bs-primary) !important; }
+
+/* ── Nav links (not inside .navbar-nav, so explicit color needed) ──────────── */
+#priam-nav .nav-link {
+  color: var(--priam-ink-700);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+#priam-nav .nav-link:hover,
+#priam-nav .nav-link:focus { background: rgba(14,18,22,0.05); color: #0E1216; }
 
 /* ── Hero h1 (Fraunces display style) ───────────────────────────────────────── */
 .priam-hero h1 {

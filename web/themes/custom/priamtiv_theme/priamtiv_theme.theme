@@ -18,6 +18,7 @@ function priamtiv_theme_theme($existing, $type, $theme, $path) {
     'priam_hero', 'priam_problems', 'priam_acronym', 'priam_policy',
     'priam_risk', 'priam_incidents', 'priam_analytics', 'priam_assets',
     'priam_why', 'priam_roles', 'priam_steps', 'priam_faq', 'priam_final_cta',
+    'priam_contact',
   ];
 
   $hooks = [];
@@ -39,6 +40,18 @@ function priamtiv_theme_theme($existing, $type, $theme, $path) {
   ];
 
   return $hooks;
+}
+
+/**
+ * Supplies the rendered contact webform to the priam_contact block template.
+ */
+function priamtiv_theme_preprocess_block__block_content__type__priam_contact(&$variables) {
+  $webform = \Drupal\webform\Entity\Webform::load('contact');
+  if ($webform) {
+    $variables['contact_form'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('webform')
+      ->view($webform);
+  }
 }
 
 /**
