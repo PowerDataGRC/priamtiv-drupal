@@ -2,10 +2,44 @@
 
 /**
  * @file
- * Functions to support theming in the SASS Starterkit subtheme.
+ * Functions to support theming in the PRIAM subtheme.
  */
 
 use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_theme().
+ *
+ * Explicitly registers block content type templates so Drupal's auto-discovery
+ * doesn't miss them inside the templates/block/ subdirectory.
+ */
+function priamtiv_theme_theme($existing, $type, $theme, $path) {
+  $block_types = [
+    'priam_hero', 'priam_problems', 'priam_acronym', 'priam_policy',
+    'priam_risk', 'priam_incidents', 'priam_analytics', 'priam_assets',
+    'priam_why', 'priam_roles', 'priam_steps', 'priam_faq', 'priam_final_cta',
+  ];
+
+  $hooks = [];
+  foreach ($block_types as $block_type) {
+    $hook_name = 'block__block_content__type__' . $block_type;
+    $template   = 'block--block-content--type--' . str_replace('_', '-', $block_type);
+    $hooks[$hook_name] = [
+      'base hook' => 'block',
+      'template'  => $template,
+      'path'      => $path . '/templates/block',
+    ];
+  }
+
+  // Full-width landing page — strip Barrio container wrapper.
+  $hooks['page__front'] = [
+    'base hook' => 'page',
+    'template'  => 'page--front',
+    'path'      => $path . '/templates/layout',
+  ];
+
+  return $hooks;
+}
 
 /**
  * Implements hook_form_system_theme_settings_alter() for settings form.

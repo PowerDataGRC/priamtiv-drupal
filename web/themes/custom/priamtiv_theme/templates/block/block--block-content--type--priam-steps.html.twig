@@ -1,0 +1,52 @@
+{# Setup Steps — 3-column numbered cards on cream #}
+<section class="py-5 py-lg-6 bg-cream" id="setup">
+  <div class="container-xl">
+    <div class="mb-5">
+      <span class="priam-eyebrow">Get started</span>
+      <h2 class="priam-section-title mt-2">Up and running in five minutes.</h2>
+      <p class="lead mt-3" style="max-width:56ch; color:var(--priam-ink-700);">
+        No demo call required. The tailored questionnaire and dashboard are ready the moment you
+        finish signup.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      {% set steps = [
+        {
+          num: '01',
+          head: 'Register your company',
+          desc: 'Email, industry, state, and a short list of operational characteristics — that\'s the entire signup form.',
+          time: '~ 90 seconds',
+        },
+        {
+          num: '02',
+          head: 'Invite your team',
+          desc: 'Add employees by email and pick a role. They land on a guided onboarding the first time they sign in.',
+          time: '~ 2 minutes',
+        },
+        {
+          num: '03',
+          head: 'Run your first assessment',
+          desc: 'The questionnaire is already tailored to your industry. Answer at your own pace; results are saved as you go.',
+          time: '~ 15 minutes, when you\'re ready',
+        },
+      ] %}
+      {% for step in steps %}
+        <div class="col-md-4">
+          <div class="priam-step h-100">
+            <div class="step-num">{{ step.num }}</div>
+            <div style="font-family:'Fraunces',serif; font-size:1.625rem; font-weight:500; line-height:1.15;">
+              {{ step.head }}
+            </div>
+            <p class="mt-auto mb-2" style="font-size:0.9375rem; line-height:1.55; color:var(--priam-ink-700);">
+              {{ step.desc }}
+            </p>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:0.6875rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--priam-ink-500);">
+              {{ step.time }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

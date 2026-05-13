@@ -1,0 +1,59 @@
+{# Module: Incidents — dark navy bg, image right #}
+<section class="py-5 py-lg-6 bg-priam-navy">
+  <div class="container-xl">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="priam-eyebrow">03 · Incident management</span>
+        <h2 class="priam-section-title mt-2" style="font-size: clamp(2rem, 3.5vw, 2.75rem); color:#F4F1EA;">
+          Every report gets an owner. Every owner gets context.
+        </h2>
+        <p class="mt-3" style="font-size:1.0625rem; line-height:1.6; color:rgba(244,241,234,0.78);">
+          Incidents move through a queue, not an inbox. Anyone on the team can submit. The right person
+          picks it up. Status changes are logged automatically — and an audit trail is built for free.
+        </p>
+
+        {# Incident queue #}
+        <div class="row row-cols-5 g-2 mt-4">
+          {% for step in [
+            { num: '01', label: 'Submitted', who: 'Reporter' },
+            { num: '02', label: 'Assigned',  who: 'Triage'   },
+            { num: '03', label: 'Active',    who: 'Owner'    },
+            { num: '04', label: 'Resolved',  who: 'Owner'    },
+            { num: '05', label: 'Closed',    who: 'Admin'    },
+          ] %}
+            <div class="col">
+              <div class="p-2 rounded-3 d-flex flex-column gap-1"
+                   style="background:rgba(244,241,234,0.04); border:1px solid rgba(244,241,234,0.10); font-size:0.8rem;">
+                <span style="font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.14em; color:var(--priam-teal-300);">{{ step.num }}</span>
+                <span class="fw-semibold" style="color:#F4F1EA; font-size:0.8125rem;">{{ step.label }}</span>
+                <span style="font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:rgba(244,241,234,0.5);">{{ step.who }}</span>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="mt-4 d-flex flex-column gap-0">
+          {% for feat in [
+            { head: 'Priority + category', body: 'Critical, high, medium, low — filterable everywhere.' },
+            { head: 'Private incidents',   body: 'HR-style reports visible only to reporter and admins.' },
+          ] %}
+            <div class="d-flex gap-3 py-3" style="border-top: 1px solid rgba(244,241,234,0.12);">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--priam-teal-300); min-width:1.5rem; padding-top:3px;">→</span>
+              <div style="font-size:0.9375rem; line-height:1.55; color:rgba(244,241,234,0.82);">
+                <strong style="color:#F4F1EA;">{{ feat.head }}</strong> · {{ feat.body }}
+              </div>
+            </div>
+          {% endfor %}
+          <div style="border-bottom: 1px solid rgba(244,241,234,0.12);"></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="priam-module-img bg-priam-navy">
+          <div style="background:rgba(244,241,234,0.06); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; border-radius:1rem;">
+            <span style="color:rgba(244,241,234,0.2); font-family:'Fraunces',serif;">Incident detail screen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

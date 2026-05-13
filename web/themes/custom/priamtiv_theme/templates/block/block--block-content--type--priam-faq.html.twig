@@ -1,0 +1,57 @@
+{# FAQ — accordion on white bg #}
+<section class="py-5 py-lg-6 bg-white" id="faq">
+  <div class="container-xl" style="max-width: 960px;">
+    <div class="mb-5">
+      <span class="priam-eyebrow">Common questions</span>
+      <h2 class="priam-section-title mt-2">Answers before you ask.</h2>
+    </div>
+
+    <div class="accordion" id="priamFaq" style="--bs-accordion-border-color: rgba(14,18,22,0.10); --bs-accordion-bg: transparent; --bs-accordion-btn-bg: transparent; --bs-accordion-active-bg: transparent; --bs-accordion-active-color: inherit; --bs-accordion-btn-focus-box-shadow: none;">
+      {% set faqs = [
+        {
+          q: 'Do I need a compliance background to use PRIAM?',
+          a: 'Not at all. PRIAM was designed for owners and operations leads — the people who already wear the compliance hat without the title. The questionnaires use plain language, and every recommendation tells you what to do next.',
+        },
+        {
+          q: 'How is this different from a project tool or shared drive?',
+          a: 'A shared drive stores documents. A project tool tracks tasks. PRIAM connects policies, risks, incidents, and assets so a change in one updates the others — and gives you an audit trail neither of those produces on its own.',
+        },
+        {
+          q: 'What size businesses is PRIAM built for?',
+          a: 'PRIAM is built for small and growing businesses — typically 5 to 250 employees. The platform scales gracefully as you add departments, but the experience stays geared toward teams without a dedicated GRC function.',
+        },
+        {
+          q: 'Is my data private to my company?',
+          a: 'Yes. PRIAM is multi-tenant: every record carries your tenant ID and isolation is enforced at the database query level. No cross-tenant access by design, and private incidents are visible only to the reporter and admins.',
+        },
+        {
+          q: 'Can I import my existing policies?',
+          a: 'Yes. Bring your existing policies in as drafts, version them inside PRIAM, and publish when you\'re ready. The acknowledgement chain starts the moment you publish.',
+        },
+        {
+          q: 'What if I just want to track incidents to start?',
+          a: 'That\'s a perfectly common starting point. Use the incident queue on its own — when you\'re ready, layer in policies, the risk assessment, or the asset register. Each module stands on its own and gets richer when combined.',
+        },
+      ] %}
+
+      {% for i, faq in faqs %}
+        <div class="accordion-item border-0" style="border-top: 1px solid rgba(14,18,22,0.10) !important; {% if loop.last %}border-bottom: 1px solid rgba(14,18,22,0.10) !important;{% endif %}">
+          <h2 class="accordion-header">
+            <button class="accordion-button {% if not loop.first %}collapsed{% endif %} px-1 py-4"
+                    type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq{{ i }}" aria-expanded="{{ loop.first ? 'true' : 'false' }}"
+                    style="font-family:'Fraunces',serif; font-size:1.375rem; font-weight:500; line-height:1.2; letter-spacing:-0.01em; color:var(--priam-ink-900, #0E1216);">
+              {{ faq.q }}
+            </button>
+          </h2>
+          <div id="faq{{ i }}" class="accordion-collapse collapse {% if loop.first %}show{% endif %}" data-bs-parent="#priamFaq">
+            <div class="accordion-body px-1 pb-4 pt-0"
+                 style="font-size:1.0625rem; line-height:1.6; color:var(--priam-ink-700); max-width:760px;">
+              {{ faq.a }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

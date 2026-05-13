@@ -1,0 +1,55 @@
+{# Roles & Security — 3-column pillars on dark navy #}
+<section class="py-5 py-lg-6 bg-priam-navy">
+  <div class="container-xl">
+    <div class="mb-5">
+      <span class="priam-eyebrow">Multi-tenant by design</span>
+      <h2 class="priam-section-title mt-2" style="color:#F4F1EA;">
+        Roles you understand. Isolation you can trust.
+      </h2>
+      <p class="lead mt-3" style="max-width:60ch; color:rgba(244,241,234,0.78);">
+        Five built-in roles cover almost every SMB org chart. Tenant isolation is enforced at the
+        database query level — not bolted on after the fact.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      {% set pillars = [
+        {
+          label: 'Roles',
+          head: 'From owner to viewer, sensibly.',
+          items: ['Super · full system access', 'Admin · tenant-wide administration', 'Manager · department / team scope', 'Employee · standard user', 'Viewer · read-only'],
+        },
+        {
+          label: 'Isolation',
+          head: 'Every record carries a tenant ID.',
+          items: ['Query-level enforcement', 'Per-tenant Firestore scoping', 'No cross-tenant leakage by design', 'Single sign-on per tenant'],
+        },
+        {
+          label: 'Audit',
+          head: 'An audit trail that writes itself.',
+          items: ['Immutable assessment logs', 'Status-change history per incident', 'Policy version + acknowledgement chain', 'Six-month retention by default'],
+        },
+      ] %}
+      {% for p in pillars %}
+        <div class="col-md-4">
+          <div class="priam-pillar h-100">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--priam-teal-300);">
+              {{ p.label }}
+            </span>
+            <div class="mt-2" style="font-family:'Fraunces',serif; font-size:1.625rem; font-weight:500; line-height:1.15; color:#F4F1EA;">
+              {{ p.head }}
+            </div>
+            <ul class="list-unstyled mt-auto mb-0 d-flex flex-column gap-2">
+              {% for item in p.items %}
+                <li style="font-size:0.875rem; line-height:1.5; color:rgba(244,241,234,0.72); padding-left:1.125rem; position:relative;">
+                  <span style="position:absolute; left:0; top:0.5rem; width:6px; height:6px; background:var(--priam-teal-300); border-radius:999px; display:inline-block;"></span>
+                  {{ item }}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

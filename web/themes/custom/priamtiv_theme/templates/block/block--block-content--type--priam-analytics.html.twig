@@ -1,0 +1,39 @@
+{# Module: Analytics — navy-soft bg, image left (flipped) #}
+<section class="py-5 py-lg-6" style="background: var(--priam-navy-800); color:#F4F1EA;">
+  <div class="container-xl">
+    <div class="row align-items-center g-5 flex-lg-row-reverse">
+      <div class="col-lg-6">
+        <span class="priam-eyebrow" style="color:var(--priam-teal-300);">Patterns over tickets</span>
+        <h2 class="priam-section-title mt-2" style="font-size: clamp(2rem, 3.5vw, 2.75rem); color:#F4F1EA;">
+          See the shape of your risk over time.
+        </h2>
+        <p class="mt-3" style="font-size:1.0625rem; line-height:1.6; color:rgba(244,241,234,0.78);">
+          Three lost devices in a month is a procurement problem. Two phishing clicks in a week is a
+          training problem. PRIAM surfaces the pattern, not just the ticket.
+        </p>
+        <div class="mt-4 d-flex flex-column gap-0">
+          {% for feat in [
+            { head: '30-day rolling view',    body: 'Trend bars, status splits, category mix.' },
+            { head: 'Open / resolved counts', body: 'Always live, always tenant-scoped.' },
+            { head: 'Filter by team',         body: 'IT, Operations, Data Privacy — drill in without losing context.' },
+          ] %}
+            <div class="d-flex gap-3 py-3" style="border-top: 1px solid rgba(244,241,234,0.12);">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--priam-teal-300); min-width:1.5rem; padding-top:3px;">→</span>
+              <div style="font-size:0.9375rem; line-height:1.55; color:rgba(244,241,234,0.82);">
+                <strong style="color:#F4F1EA;">{{ feat.head }}</strong> · {{ feat.body }}
+              </div>
+            </div>
+          {% endfor %}
+          <div style="border-bottom: 1px solid rgba(244,241,234,0.12);"></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="priam-module-img bg-priam-navy">
+          <div style="background:rgba(244,241,234,0.06); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; border-radius:1rem;">
+            <span style="color:rgba(244,241,234,0.2); font-family:'Fraunces',serif;">Incident analytics screen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+{# Why PRIAM — differentiators 2×2 grid on teal gradient bg #}
+<section class="py-5 py-lg-6 bg-priam-teal" id="why">
+  <div class="container-xl">
+    <div class="mb-5">
+      <span class="priam-eyebrow">Why PRIAM</span>
+      <h2 class="priam-section-title mt-2" style="color:#F4FBF7;">Built different, on purpose.</h2>
+      <p class="lead mt-3" style="max-width:60ch; color:rgba(244,251,247,0.78);">
+        There are bigger platforms, and there are simpler ones. PRIAM is the simplest that still does
+        the job — and the only one designed end-to-end for small business owners.
+      </p>
+    </div>
+
+    <div class="row g-2">
+      {% set cards = [
+        { num: '01 · SIMPLICITY',              head: 'No GRC vocabulary required.',
+          desc: 'Plain language, sensible defaults, zero implementation consultants. If you can use a project tool, you can use PRIAM.' },
+        { num: '02 · QUEUE-BASED INCIDENTS',   head: 'Reports never get stuck in someone\'s inbox.',
+          desc: 'Every incident has a clear owner at every stage. Status changes are auditable, not just messages someone forgot.' },
+        { num: '03 · ADAPTIVE QUESTIONNAIRES', head: 'Only the questions that apply to you.',
+          desc: 'Your industry classification drives the questionnaire. Skip the parts that aren\'t relevant; go deep where they are.' },
+        { num: '04 · ASSEMBLED, NOT BOLTED ON', head: 'Four functions designed to share data.',
+          desc: 'Policies, risk, incidents and assets all reference each other. One source of truth, not four spreadsheets.' },
+      ] %}
+      {% for card in cards %}
+        <div class="col-md-6">
+          <div class="priam-diff-card h-100">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.8125rem; letter-spacing:0.16em; color:var(--priam-teal-300);">
+              {{ card.num }}
+            </span>
+            <div class="card-title mt-2">{{ card.head }}</div>
+            <p class="mt-auto mb-0" style="font-size:1rem; line-height:1.55; color:rgba(244,251,247,0.74);">
+              {{ card.desc }}
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+{# Module: Policy Management — white bg, image right #}
+<section class="py-5 py-lg-6 bg-white" id="how">
+  <div class="container-xl">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="priam-eyebrow">01 · Policy management</span>
+        <h2 class="priam-section-title mt-2" style="font-size: clamp(2rem, 3.5vw, 2.75rem);">
+          Policies your team actually reads.
+        </h2>
+        <p class="mt-3" style="font-size:1.0625rem; line-height:1.6; color:var(--priam-ink-700);">
+          Every policy is a versioned document with a status — draft, published, archived — and an
+          acknowledgement record. When you publish a new revision, the team sees it at next sign-in
+          and can confirm with one click.
+        </p>
+        <div class="mt-4 d-flex flex-column gap-0">
+          {% for feat in [
+            { num: '01', head: 'Categories & tags', body: 'HR, IT, Safety, Finance — search and filter on what matters.' },
+            { num: '02', head: 'Effective dates',   body: 'Schedule a policy to go live, with reminders for the next review.' },
+            { num: '03', head: 'Acknowledgement tracking', body: 'See exactly who\'s read what, and chase the rest.' },
+          ] %}
+            <div class="d-flex gap-3 py-3" style="border-top: 1px solid rgba(14,18,22,0.08);">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; letter-spacing:0.12em; color:var(--bs-primary); min-width:2rem; padding-top:3px;">{{ feat.num }}</span>
+              <div style="font-size:0.9375rem; line-height:1.55; color:var(--priam-ink-700);">
+                <strong>{{ feat.head }}</strong> · {{ feat.body }}
+              </div>
+            </div>
+          {% endfor %}
+          <div style="border-bottom: 1px solid rgba(14,18,22,0.08);"></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="priam-module-img">
+          <div style="background:var(--priam-navy-900); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;">
+            <span style="color:rgba(244,241,234,0.2); font-family:'Fraunces',serif;">Policy management screen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

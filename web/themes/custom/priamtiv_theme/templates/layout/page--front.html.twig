@@ -1,0 +1,14 @@
+{#
+  Landing page override — removes Barrio's container/row wrapper so our
+  full-width section backgrounds can span the viewport.
+#}
+{% extends "@bootstrap_barrio/layout/page.html.twig" %}
+
+{% block content %}
+  <main id="main-content" tabindex="-1" role="main">
+    <a href="#main-content" class="visually-hidden focusable skip-link">
+      {{ 'Skip to main content'|t }}
+    </a>
+    {{ page.content }}
+  </main>
+{% endblock %}

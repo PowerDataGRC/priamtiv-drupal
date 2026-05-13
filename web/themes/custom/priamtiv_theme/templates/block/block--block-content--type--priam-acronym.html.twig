@@ -1,0 +1,42 @@
+{# PRIAM Acronym Cards section #}
+<section class="py-5 py-lg-6 bg-cream" id="platform">
+  <div class="container-xl">
+    <div class="mb-5">
+      <span class="priam-eyebrow">The platform</span>
+      <h2 class="priam-section-title mt-2">Five letters. One source of truth.</h2>
+      <p class="lead mt-3" style="max-width: 60ch; color: var(--priam-ink-700);">
+        PRIAM stands for the four workflows every operating business already runs — just usually
+        scattered across email, sheets, and shared drives.
+      </p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-3">
+      {% set cards = [
+        { letter: 'P', word: 'Policy',     name: 'Living documents',    desc: 'Draft, publish, version, and acknowledge — visible to your team where they work.' },
+        { letter: 'R', word: 'Risk',       name: 'Adaptive assessment', desc: "Industry-aware questionnaires that skip what doesn't apply to you." },
+        { letter: 'I', word: 'Incident',   name: 'Queue-based tracking',desc: 'Every report has a clear owner from start through closed.' },
+        { letter: 'A', word: 'Asset',      name: 'People and things',   desc: 'Employees, customers, suppliers, devices, vehicles — all linked, all searchable.' },
+        { letter: 'M', word: 'Management', name: 'In one dashboard',    desc: 'Cross-cutting visibility, role-based access, and an audit trail that writes itself.' },
+      ] %}
+      {% for card in cards %}
+        <div class="col">
+          <div class="priam-acronym-card h-100">
+            <div class="letter">{{ card.letter }}</div>
+            <div>
+              <div class="text-uppercase fw-medium"
+                   style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; letter-spacing:0.16em; color:var(--priam-ink-500);">
+                {{ card.word }}
+              </div>
+              <div class="mt-1 fw-medium" style="font-family:'Fraunces',serif; font-size:1.25rem; line-height:1.1;">
+                {{ card.name }}
+              </div>
+            </div>
+            <div class="mt-auto small" style="color:var(--priam-ink-700); line-height:1.5;">
+              {{ card.desc }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+{# Module: Asset Management — cream bg, image right #}
+<section class="py-5 py-lg-6 bg-cream">
+  <div class="container-xl">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="priam-eyebrow">04 · Asset management</span>
+        <h2 class="priam-section-title mt-2" style="font-size: clamp(2rem, 3.5vw, 2.75rem);">
+          One register for everyone and everything.
+        </h2>
+        <p class="mt-3" style="font-size:1.0625rem; line-height:1.6; color:var(--priam-ink-700);">
+          Employees, customers, suppliers, devices, vehicles — all stored against the same tenant,
+          all linkable to incidents and policies.
+        </p>
+        <div class="mt-4 d-flex flex-column gap-0">
+          {% for feat in [
+            { num: '01', head: 'Five asset types out of the box', body: 'No schema work to start.' },
+            { num: '02', head: 'Approval workflow',               body: 'Employees submit; admins verify before records go active.' },
+            { num: '03', head: 'Linked to incidents',            body: 'A device record shows every incident it\'s been part of.' },
+          ] %}
+            <div class="d-flex gap-3 py-3" style="border-top: 1px solid rgba(14,18,22,0.08);">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; letter-spacing:0.12em; color:var(--bs-primary); min-width:2rem; padding-top:3px;">{{ feat.num }}</span>
+              <div style="font-size:0.9375rem; line-height:1.55; color:var(--priam-ink-700);">
+                <strong>{{ feat.head }}</strong> · {{ feat.body }}
+              </div>
+            </div>
+          {% endfor %}
+          <div style="border-bottom: 1px solid rgba(14,18,22,0.08);"></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="priam-module-img">
+          <div style="background:var(--priam-navy-900); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;">
+            <span style="color:rgba(244,241,234,0.2); font-family:'Fraunces',serif;">Asset register screen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
