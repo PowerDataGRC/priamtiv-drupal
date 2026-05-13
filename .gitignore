@@ -1,0 +1,33 @@
+# Drupal core
+web/core
+web/modules/contrib
+web/themes/contrib
+web/profiles/contrib
+
+# Composer vendor
+vendor
+
+# Generated files — rebuilt by composer install on Hostinger
+web/autoload.php
+
+# User-uploaded files
+web/sites/default/files
+
+# Environment-specific settings (never commit real credentials)
+web/sites/default/settings.local.php
+web/sites/default/services.local.yml
+
+# Drupal scaffold writes these — track only if you customise them
+# web/sites/default/settings.php   ← tracked (DDEV writes safe defaults)
+
+# DDEV local config
+.ddev/.gitignore
+.ddev/config.*.yaml
+.ddev/homeadditions
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+*.swp
