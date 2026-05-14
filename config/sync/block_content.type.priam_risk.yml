@@ -1,0 +1,8 @@
+uuid: 17f23a5a-b3e2-4946-a524-eff1e409bd57
+langcode: en
+status: true
+dependencies: {  }
+id: priam_risk
+label: 'Module: Risk'
+revision: false
+description: null

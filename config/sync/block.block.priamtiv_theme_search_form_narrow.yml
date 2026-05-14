@@ -1,0 +1,23 @@
+uuid: d60ad5a8-f6cf-452e-9312-2461f34c6412
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - priamtiv_theme
+_core:
+  default_config_hash: yEBET0cqDbk8dkWzaJw-8CKft0961VBflsISoSR6Lj8
+id: priamtiv_theme_search_form_narrow
+theme: priamtiv_theme
+region: primary_menu
+weight: -4
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (narrow)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

@@ -1,0 +1,8 @@
+uuid: 2e26e86b-035a-4831-8002-234bc811891d
+langcode: en
+status: true
+dependencies: {  }
+id: priam_hero
+label: 'Hero Section'
+revision: false
+description: null

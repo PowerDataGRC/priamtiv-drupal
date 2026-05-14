@@ -1,0 +1,22 @@
+uuid: 158b738a-636b-4822-a5a7-3da4995c2656
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - priamtiv_theme
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: priamtiv_theme_help
+theme: priamtiv_theme
+region: top_header
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

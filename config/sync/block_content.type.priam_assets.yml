@@ -1,0 +1,8 @@
+uuid: 667d2175-048b-4894-ae9d-4a8bf82a5774
+langcode: en
+status: true
+dependencies: {  }
+id: priam_assets
+label: 'Module: Assets'
+revision: false
+description: null

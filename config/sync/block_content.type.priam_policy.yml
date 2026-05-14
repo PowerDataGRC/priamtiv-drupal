@@ -1,0 +1,8 @@
+uuid: 58966d71-cae1-43f6-86f8-0945428dba73
+langcode: en
+status: true
+dependencies: {  }
+id: priam_policy
+label: 'Module: Policy'
+revision: false
+description: null

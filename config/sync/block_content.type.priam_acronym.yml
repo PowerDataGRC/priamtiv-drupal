@@ -1,0 +1,8 @@
+uuid: a134770b-d8da-4965-94ba-9f67c75f2fdf
+langcode: en
+status: true
+dependencies: {  }
+id: priam_acronym
+label: 'PRIAM Acronym Cards'
+revision: false
+description: null

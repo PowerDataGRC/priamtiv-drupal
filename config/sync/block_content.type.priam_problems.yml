@@ -1,0 +1,8 @@
+uuid: 7fc9d24f-07c9-40af-a756-902676a708bf
+langcode: en
+status: true
+dependencies: {  }
+id: priam_problems
+label: 'Problem Strip'
+revision: false
+description: null

@@ -1,0 +1,8 @@
+uuid: 70515d32-6c3c-4238-bf1b-680d2b71281b
+langcode: en
+status: true
+dependencies: {  }
+id: priam_incidents
+label: 'Module: Incidents'
+revision: false
+description: null

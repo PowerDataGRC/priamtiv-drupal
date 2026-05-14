@@ -1,0 +1,8 @@
+uuid: 0b7f6c31-34fb-4150-a500-8418710b639c
+langcode: en
+status: true
+dependencies: {  }
+id: priam_faq
+label: FAQ
+revision: false
+description: null

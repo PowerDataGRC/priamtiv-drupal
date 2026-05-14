@@ -1,0 +1,8 @@
+uuid: 05691cf2-8039-40b7-93c9-42cfcbc4e669
+langcode: en
+status: true
+dependencies: {  }
+id: priam_contact
+label: 'PRIAM Contact'
+revision: false
+description: 'Contact form section block'

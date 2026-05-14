@@ -1,0 +1,8 @@
+uuid: 00fdebf8-9c78-4a7c-b9f7-e240a442fc65
+langcode: en
+status: true
+dependencies: {  }
+id: priam_analytics
+label: 'Module: Analytics'
+revision: false
+description: null
