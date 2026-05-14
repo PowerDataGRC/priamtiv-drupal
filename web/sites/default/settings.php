@@ -893,7 +893,24 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev
  *
  * Keep this code block at the end of this file to take full effect.
  */
-#
+$base_url = 'https://priamtiv.com';
+
+$settings['trusted_host_patterns'] = [
+  '^priamtiv\.com$',
+  '^www\.priamtiv\.com$',
+];
+
+$config['smtp.settings']['smtp_on'] = TRUE;
+$config['smtp.settings']['smtp_host'] = 'smtp.hostinger.com';
+$config['smtp.settings']['smtp_port'] = '465';
+$config['smtp.settings']['smtp_protocol'] = 'ssl';
+$config['smtp.settings']['smtp_username'] = 'hello@priamtiv.com';
+$config['smtp.settings']['smtp_from'] = 'hello@priamtiv.com';
+$config['smtp.settings']['smtp_fromname'] = 'Priamtiv';
+$config['smtp.settings']['smtp_allowhtml'] = TRUE;
+
+$config['recaptcha.settings']['site_key'] = '6LfL1OYsAAAAANUsZX_WoynQxsWYhz7Bjuym3zZ-';
+
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
