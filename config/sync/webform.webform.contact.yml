@@ -229,20 +229,20 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: '[current-user:mail]'
+      to_mail: '[webform_submission:values:email:raw]'
       to_options: {  }
       bcc_mail: ''
       bcc_options: {  }
       cc_mail: ''
       cc_options: {  }
-      from_mail: _default
+      from_mail: hello@priamtiv.com
       from_options: {  }
-      from_name: _default
+      from_name: Priamtiv
       reply_to: ''
       return_path: ''
       sender_mail: ''
       sender_name: ''
-      subject: '[webform_submission:values:subject:raw]'
+      subject: 'Thank you for contacting Priamtiv'
       body: '[webform_submission:values:message:value]'
       excluded_elements: {  }
       ignore_access: false
@@ -272,14 +272,14 @@ handlers:
       bcc_options: {  }
       cc_mail: ''
       cc_options: {  }
-      from_mail: '[webform_submission:values:email:raw]'
+      from_mail: hello@priamtiv.com
       from_options: {  }
-      from_name: '[webform_submission:values:name:raw]'
-      reply_to: ''
+      from_name: Priamtiv
+      reply_to: '[webform_submission:values:email:raw]'
       return_path: ''
       sender_mail: ''
       sender_name: ''
-      subject: '[webform_submission:values:subject:raw]'
+      subject: 'New contact form submission from [webform_submission:values:name:raw]'
       body: '[webform_submission:values:message:value]'
       excluded_elements: {  }
       ignore_access: false
